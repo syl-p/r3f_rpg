@@ -4,7 +4,7 @@ import Experience from "./Experience.jsx";
 import Loader from "./components/Loader.jsx"
 import {Suspense } from 'react'
 import { Perf } from "r3f-perf";
-import { DataContextProvider } from "./DataContext.jsx";
+import { DataContextProvider } from "./context.jsx";
 
 function App() {
   return <>

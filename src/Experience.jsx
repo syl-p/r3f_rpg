@@ -2,7 +2,7 @@
 import {useContext, useRef, useState} from "react";
 import {ContactShadows, Grid, KeyboardControls, OrbitControls, Sky, Stage, useHelper} from "@react-three/drei";
 import * as THREE from "three"
-import { DataContext } from "./DataContext";
+import { DataContext } from "./context.jsx";
 import {Fox} from "./components/Fox.jsx";
 
 export default function Experience() {

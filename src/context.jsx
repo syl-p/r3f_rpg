@@ -1,15 +1,20 @@
-import { createContext, useContext, useState } from "react";
-const CustomizationContext = createContext({})
+import {createContext, useContext, useMemo, useState} from "react";
+const CustomizationContext = createContext({
+
+})
 
 export const ContextProvider = (props) => {
-    const [animationIndex, setAnimationIndex] = useState(0);
-    const [animations, setAnimations] = useState([]);
+    const [currentAnimation, setAnimation] = useState(0);
+
+    const animation = useMemo(() => {
+        return {
+            currentAnimation
+        }
+    }, [currentAnimation])
 
     return <CustomizationContext.Provider value={{
-        animationIndex,
-        setAnimationIndex,
-        animations,
-        setAnimations
+        animation,
+        setAnimation
     }}>
         {props.children}
     </CustomizationContext.Provider>

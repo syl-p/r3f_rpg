@@ -4,12 +4,12 @@ import Experience from "./Experience.jsx";
 import Loader from "./components/Loader.jsx"
 import {Suspense } from 'react'
 import { Perf } from "r3f-perf";
-import { DataContextProvider } from "./context.jsx";
+import {ContextProvider} from "./context.jsx";
 
 function App() {
   return <>
     <Suspense fallback={<Loader />}>
-      <DataContextProvider>
+      <ContextProvider>
         <div className="h-full w-full absolute top-0 left-0">
           <Canvas
             gl={{ logarithmicDepthBuffer: true, antialias: false }} dpr={[1, 1.5]}
@@ -18,7 +18,7 @@ function App() {
                   fov: 70,
                   near: 0.1,
                   far: 300,
-                  position: [0, 13, 0]
+                  position: [6, 4, 8]
               }
             }
             shadows
@@ -28,7 +28,7 @@ function App() {
             <Perf />
           </Canvas>
         </div>
-      </DataContextProvider>
+      </ContextProvider>
     </Suspense>
   </>
 }

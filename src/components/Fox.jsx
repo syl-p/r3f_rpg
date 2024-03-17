@@ -26,7 +26,7 @@ export function Fox(props) {
   useFrame((state, delta) => {
     tpsCameraUpdate(delta)
 
-    // handleAnimation()
+    handleAnimation()
     handleMovements(delta)
   })
 

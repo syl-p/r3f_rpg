@@ -13,14 +13,14 @@ export default function useTpsCamera(object, offset, lookAt) {
     }, [camera]);
 
     function calculateOffset() {
-        const idealOffset = offset
+        const idealOffset = offset.clone()
         idealOffset.applyQuaternion(object.current.quaternion)
         idealOffset.add(object.current.position)
         return idealOffset
     }
 
     function calculateLookAt() {
-        const idealLookAt = lookAt
+        const idealLookAt = lookAt.clone()
         idealLookAt.applyQuaternion(object.current.quaternion)
         idealLookAt.add(object.current.position)
         return idealLookAt
@@ -34,14 +34,14 @@ export default function useTpsCamera(object, offset, lookAt) {
         let idealLookAt = calculateLookAt()
 
         // const delay = 0.05 // delay
-        const delay = 0.01 * delta
+        const delay = 0.5 * delta
 
         // this.currentPosition.copy(idealOffset)
         // this.currentLookAt.copy((idealLookAt))
         currentPosition.current.lerp(idealOffset, delay)
         currentLookAt.current.lerp(idealLookAt, delay)
 
-        cameraRef.current.position.copy(currentPosition)
-        cameraRef.current.lookAt(currentLookAt)
+        cameraRef.current.position.copy(currentPosition.current)
+        cameraRef.current.lookAt(currentLookAt.current)
     }
 }

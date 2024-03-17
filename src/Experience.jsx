@@ -3,6 +3,7 @@ import {useContext, useRef, useState} from "react";
 import {ContactShadows, Grid, KeyboardControls, OrbitControls, Sky, Stage, useHelper} from "@react-three/drei";
 import * as THREE from "three"
 import {Fox} from "./components/Fox.jsx";
+import Follower from "./components/npcs/Follower.jsx";
 
 export default function Experience() {
     const dirLight = useRef()
@@ -17,11 +18,12 @@ export default function Experience() {
     ]
     return <>
         <KeyboardControls map={keyboardMap}>
-            <Sky/>
+            <Sky/>dd
             <Stage shadows environment="city" castShadow receiveShadow intensity={1}>
                 <Grid receiveShadow renderOrder={-1} position={[0, 0, 0]} infiniteGrid cellSize={0.6} cellThickness={0.6} sectionSize={3.3}
                       sectionThickness={1.5} sectionColor={[0.5, 0.5, 10]} fadeDistance={50}/>
                 <Fox scale={0.03}/>
+                <Follower />
             </Stage>
         </KeyboardControls>
     </>

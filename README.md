@@ -2,7 +2,7 @@
 
 - Basic movement
   - [x] move player with animation
-  - [ ] camera following targeting mode (TPS mode)
+  - [x] camera following targeting mode (TPS mode)
   - [ ] camera rotating around player mode (RPG mode)
   - [ ] switch (rotating camera to following targeting mode ) in fight mode
   - [ ] physics with random box (jump, collision... )

@@ -27,14 +27,14 @@ export default function useTpsCamera(object, offset, lookAt) {
     }
 
     return (delta) => {
-        if(!object.current)
+        if(!object.current || !cameraRef.current)
             return
 
         let idealOffset = calculateOffset()
         let idealLookAt = calculateLookAt()
 
         // const delay = 0.05 // delay
-        const delay = 0.5 * delta
+        const delay = delta
 
         // this.currentPosition.copy(idealOffset)
         // this.currentLookAt.copy((idealLookAt))

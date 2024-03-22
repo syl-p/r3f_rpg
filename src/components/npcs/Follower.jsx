@@ -4,19 +4,15 @@ import useSeekSteering from "../../hooks/Yuka/SeekSteering.js";
 import {useFrame} from "@react-three/fiber";
 import * as THREE from "three"
 
-export default function Follower() {
-    const [set, update] = useSeekSteering()
-    const ref = useRef()
+export default function Follower({targetRef}) {
+    const coneRef = useRef()
+    const [update] = useSeekSteering(coneRef, targetRef.current,  new THREE.Vector3(0, 0, 20), [])
 
-    useEffect(() => {
-        set(ref.current, new THREE.Vector3(0, 0, 0))
-    }, []);
-
-    useFrame(() => {
-        update()
+    useFrame((state, delta) => {
+        update(delta)
     })
 
     return (
-        <Cone ref={ref}/>
+        <Cone castShadow receiveShadow ref={coneRef}/>
     )
 }
